@@ -1,5 +1,9 @@
 ## For clean local storage go to path: /clear_local_storage
 
+##running on GitHub
+https://romanenko-andrey.github.io/my-angular1.5-express-albom/app
+
+
 Requirements:
 - Angular 1.5.*
 - Webpack
