@@ -1,0 +1,73 @@
+<div class="container">
+  <section class='left-block'>
+    <div>
+        <input id="new-albom-name" type="text" ng-model="$ctrl.newAlbomName" ng-change="$ctrl.newNameChange()" placeholder="enter new albom name here"> 
+        <button type="button" class="btn btn-success" ng-class="{'disabled': $ctrl.incorectName }" ng-click="$ctrl.addAlbom()">New albom</button>
+    </div>
+    <br />
+
+    <div class="list-div" ng-if= "!$ctrl.empty">
+      <div>
+        <label for="search-filter"> Filter by title: </label>
+        <input id="search-filter" type="text" ng-model="$ctrl.searchText">
+      </div>
+
+      <table class="list-table" ng-mouseleave="$ctrl.row=-1">
+          <tr ng-mouseover="$ctrl.row=-1" >
+              <th>#</th>
+              <th ng-repeat="col in $ctrl.columns" 
+                  ng-click="$ctrl.sort(col)" 
+                  class="sortable"
+                  ng-class="$ctrl.orderBy.indexOf(col) > -1 ? $ctrl.sortClass : 'sort-none'">{{ col | uppercase }}</th>
+              <th>CONTROL</th>    
+          </tr>
+        
+          <tr ng-repeat="albom in $ctrl.alboms | filter: {title : $ctrl.searchText} | orderBy: $ctrl.orderBy"
+                  ng-class-odd="'row-shadow'"
+                  ng-mouseover="$ctrl.row=$index"  
+                  ng-click="$ctrl.selectAlbom(albom)"
+                  ng-class="{'hover-row': $ctrl.row===$index, 'selected-row': $ctrl.selectedAlbom===albom}">
+              
+              <td >{{ $index+1 }}</td>
+              <td class="text">
+                 <span ng-hide="$ctrl.showDetailInfo($index)">{{ albom.title }}</span>
+                 <p ng-show="$ctrl.showDetailInfo($index)" class="animate-show">{{ albom.title }}</p>
+              </td>
+
+              <td class="text">
+                <span ng-hide="$ctrl.showDetailInfo($index)">{{ albom.about }}</span>
+                <p ng-show="$ctrl.showDetailInfo($index)" class="animate-show">{{ albom.about }}</p>
+              </td>
+
+              <td>{{ albom.size }}</td>
+              <td>
+                <movie-rating class="show-star" value="albom.rating">
+                  <span class="glyphicon glyphicon-star"></span>
+                </movie-rating>
+              </td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-default" ng-click="$ctrl.editAlbom($event, albom)">
+                      <span class="glyphicon glyphicon-edit"></span>
+                  </button>
+
+                  <button class="btn btn-default" ng-click="$ctrl.deleteAlbom(albom)">
+                      <span class="glyphicon glyphicon-trash"></span>
+                  </button>
+                </div>
+            </td> 
+          </tr>
+      </table>
+
+      <content-edit content="$ctrl.editedAlbom" on-close="$ctrl.close()" on-save="$ctrl.save()"></content-edit>
+     
+    </div>
+
+  </section>
+
+  <section class='right-block'>
+    <div>
+      <albom-detail albom="$ctrl.selectedAlbom"></albom-detail>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,65 @@
+<section ng-if= "$ad.albom">
+  
+  <h3> Albom: <strong> {{ $ad.albom.title }} </strong> </h3>
+
+  <div>
+    <input type="text" ng-model="$ad.newMovieName" placeholder="movie title"> 
+    <input type="text" ng-model="$ad.newMovieURL" placeholder="movie URL"> 
+    <button type="button" class="btn btn-success" ng-click="$ad.addMovie()">New movie</button>
+  </div>
+  
+  <br />
+
+  <div ng-if="!$ad.empty()">
+    <table class="list-table" ng-mouseleave="$ad.row=-1">
+      <tr ng-mouseover="$ad.row=-1" >
+        <th>#</th>
+        <th ng-repeat="col in $ad.columns" ng-click="$ad.sort(col)" class="sortable"
+            ng-class="$ad.orderBy.indexOf(col) > -1 ? $ad.sortClass : 'sort-none'">{{ col | uppercase }}</th>
+        <th>CONTROL</th>    
+      </tr>
+ 
+
+      <tr ng-repeat="movie in $ad.albom.list | orderBy: $ad.orderBy"
+          ng-class-odd="'row-shadow'"
+          ng-mouseover="$ad.row=$index" 
+          ng-click="$ad.selectMovie(movie)"
+          ng-class="{'hover-row': $ad.row===$index, 'selected-row': $ad.selectedAlbom === movie}">
+
+          <td>{{ $index+1 }}</td>
+          <td class="text">
+            <span ng-hide="$ad.showDetailInfo($index)">{{ movie.title }}</span>
+            <p ng-show="$ad.showDetailInfo($index)" class="animate-show">{{ movie.title }}</p>
+          </td>
+          <td class="text">
+            <span ng-hide="$ad.showDetailInfo($index)">{{ movie.about }}</span>
+            <p ng-show="$ad.showDetailInfo($index)" class="animate-show">{{ movie.about }}</p>
+          </td>
+          <td class="text"><span>{{ movie.url }}</span></td>
+          <td>
+            <movie-rating class="show-star" value="movie.rating">
+              <span class="glyphicon glyphicon-star"></span>
+            </movie-rating>
+          </td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-default" ng-click="$ad.playMovie(movie)">
+                  <span class="glyphicon glyphicon-play"></span>
+              </button>
+              <button class="btn btn-default" ng-click="$ad.editMovie($event, movie)">
+                  <span class="glyphicon glyphicon-edit"></span>
+              </button>
+
+              <button class="btn btn-default" ng-click="$ad.deleteMovie($ad.albom, movie)">
+                  <span class="glyphicon glyphicon-trash"></span>
+              </button>
+            </div>
+        </td> 
+      </tr>
+    </table>
+  </div>
+
+  <movie-list-edit content="$ad.editedMovie" on-close="$ad.close()"></movie-list-edit>
+  </br>
+  </br>
+</section>

@@ -1,0 +1,10 @@
+<div class="container" ng-if="$ctrl.movie">
+  <a ng-href="{{$ctrl.movie.url}}" target="blank" >  
+    <h2>{{ $ctrl.movie.title }}</h2>
+    <h3>{{ $ctrl.movie.about }}</h3>
+    {{ $ctrl.movie.url }}
+  </a>
+
+  <iframe width="100%" height="100%" ng-src="{{ $ctrl.movieURL }}" frameborder="0" allowfullscreen></iframe>
+
+</div>

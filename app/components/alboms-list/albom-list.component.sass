@@ -1,0 +1,92 @@
+h1
+  border: 1px solid black
+  border-radius: 10px
+  background-color: deepskyblue
+  padding: .3em
+
+.row-shadow td
+  background-color: #ddd
+
+.hover-row td
+  background-color: lightgreen
+
+.selected-row td
+  background-color: deepskyblue
+
+.list-table
+  border: 1px solid #bbb
+  border-collapse: collapse
+  cursor: default
+  margin-bottom: 20px
+  th
+    text-align: left
+  td, th
+    padding: 5px
+  td
+    &.text
+      max-width: 177px
+      span
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        display: inline-block
+        max-width: 100%
+    -webkit-transition: all linear 0.5s
+    transition: all linear 0.5s
+    opacity: 1
+  &.ng-hide
+    opacity: 0
+
+.sortable
+  cursor: s-resize
+  /* down-arrow
+
+.clickable
+  cursor: default
+
+.sort-asc:after
+  content: '\a0\2193'
+  /* space down-arrow
+
+.sort-desc:after
+  content: '\a0\2191'
+  /* space up-arrow
+
+.sort-none:after
+  content: '\a0\a0'
+  /* space space
+
+.drop-menu
+  width: 10rem
+  position: absolute
+  top: 50px
+  right: 0
+  background-color: lightgray
+  border: 1px solid lightgray
+
+my-header
+  margin-bottom: 100px
+
+#qqtitle-detail, #qqabout-detail, .width100
+  width: 100%
+
+.left-block, .right-block
+  display: inline-block
+  vertical-align: top
+
+.left-block, .right-block
+  width: calc(50% - 15px)
+
+.list-table
+  width: 100%
+
+.show-star
+  font-size: 18px
+
+@media screen and (max-width: 1024px)
+  .right-block, .left-block
+    width: 100%
+  .list-table td.text
+    max-width: 130px
+  .show-star
+    font-size: 10px

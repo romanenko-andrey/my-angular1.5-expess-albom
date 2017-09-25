@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Angular JS tutorial",
+    "about" : "My collection the most popular (and entertaining) explainers, how-tos, and life hacks.",
+    "rating": 5,
+    "list": 
+    [
+      {
+        "title": "Try AngularJS - 33 lessons",
+        "url": "https://www.youtube.com/embed/IPUYEzJitkI?list=PLEsfXFp6DpzRB30gXPSwzAEQfqiUZkRsg",
+        "about" : "Step-by-step introduction to the AngularJS framework version 1.5",
+        "rating": 5
+      },
+
+      {
+        "title": "Components, Components, Components!",
+        "url": "https://www.youtube.com/embed/AMwjDibFxno",
+        "about" : "ng-conf is a two day, single track conference focused on delivering the highest quality training in the Angular JavaScript framewor",
+        "rating": 4
+      },
+      {
+        "title": "Сравнение React и Angular",
+        "url": "https://www.youtube.com/embed/Rgg7RuESle0",
+        "about" : "Что учить React или Angular в 2017?",
+        "rating": 3
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+<div ng-if="$ctrl.content">
+
+  <label for='title-detail'> Title: </label>
+  <input type="text" id="title-detail" class='width100' ng-model="$ctrl.content.title">
+   
+  <label for='about-detail'> About: </label>  
+  <input type="text" id='about-detail' class='width100' ng-model="$ctrl.content.about">
+  
+  <span><b>Rating: </b></span>  
+  <p uib-rating ng-model="$ctrl.content.rating" max="5" state-on="glyphicon-star" state-off="glyphicon-star-empty" aria-labelledby="custom-icons-1"></p>
+		
+	<div class="btn-group">
+		<button class="btn btn-default" ng-click="$ctrl.save()">
+		  SAVE <span class="glyphicon glyphicon-save"></span>
+		</button>
+
+		<button class="btn btn-default" ng-click="$ctrl.close()">
+		  DON'T SAVE <span class="glyphicon glyphicon-log-out"></span>
+		</button>
+	</div>
+	</br>
+	</br>
+</div>

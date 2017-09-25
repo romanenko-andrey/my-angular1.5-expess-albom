@@ -1,0 +1,17 @@
+<div ng-if="$ctrl.content">
+  <label for='movie-title-detail'> Title: </label>
+  <input class="width100" type="text" id="movie-title-detail" ng-model="$ctrl.content.title">
+
+  <label for='movie-about-detail'> About: </label>  
+  <input class="width100" type="text" id='movie-about-detail' ng-model="$ctrl.content.about">
+
+  <label for='movie-url-detail'> URL: </label>  
+  <input class="width100" type="text" id='movie-url-detail' ng-model="$ctrl.content.url">
+
+  <span ><b>Rating:</b></span>  
+  <p uib-rating ng-model="$ctrl.content.rating" max="5" state-on="glyphicon-star" state-off="glyphicon-star-empty" aria-labelledby="custom-icons-1"></p>
+
+  <button class="btn btn-default" ng-click="$ctrl.close()">
+    SAVE & CLOSE <span class="glyphicon glyphicon-save"></span>
+  </button>
+</div>
